@@ -21,4 +21,43 @@ and does the following:
 
 import sys
 import calendar
-from datetime import datetime
+import datetime
+  
+def input_receiver():
+  """
+  Instantiates system parameters and returns month and year variables as integers.
+  """
+
+  sys_entry = []
+
+  for i in sys.argv:
+    sys_entry.append(i)
+    
+  try:
+    month = sys_entry[1]
+    month = int(month)
+  except:
+    month = datetime.date.today().month
+
+  try:
+    year = sys_entry[2]
+    year = int(year)
+  except:
+    year = datetime.date.today().year
+  
+  return month, year
+
+def calendar_generator(month, year):
+  """
+  Takes month and year variables as inputs and prints a corresponding calendar.
+  """
+  c = calendar.TextCalendar()
+  
+  c = c.formatmonth(year, month)
+  
+  print(c)
+
+if __name__ == '__main__':
+
+  month, year = input_receiver()
+  calendar_generator(month=month, year=year)

@@ -1,0 +1,1 @@
+I am a new file called bar.txt. I am being written for demonstration to demonstrate python I/O. I am a rather boring text file.
